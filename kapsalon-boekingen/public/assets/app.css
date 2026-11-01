@@ -1,0 +1,93 @@
+/* Publieke boekingspagina */
+.topbar {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  max-width: 760px; margin: 0 auto;
+  padding: calc(14px + env(safe-area-inset-top)) 20px 14px;
+}
+.brand { display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1; }
+.topbar > .btn { flex: none; }
+.logo {
+  width: 44px; height: 44px; border-radius: 13px; flex: none; overflow: hidden;
+  background: url("/assets/icon.svg") center / cover no-repeat;
+  box-shadow: 0 6px 16px -6px rgba(0, 0, 0, 0.35), 0 0 0 0.5px rgba(0, 0, 0, 0.08);
+}
+.logo img { width: 100%; height: 100%; object-fit: cover; }
+.logo.custom { background: var(--glass-bg-strong); }
+.brand-text { min-width: 0; flex: 1; }
+.brand-name { font-size: 17px; font-weight: 650; letter-spacing: -0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.status { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-3); white-space: nowrap; min-width: 0; }
+.status span { overflow: hidden; text-overflow: ellipsis; }
+.status i { width: 7px; height: 7px; border-radius: 50%; background: var(--text-3); opacity: 0.6; flex: none; }
+.status.open i { background: var(--green); opacity: 1; box-shadow: 0 0 0 3px rgba(48, 176, 90, 0.18); }
+
+.shell { max-width: 760px; margin: 0 auto; padding: 8px 16px 40px; }
+.booking { padding: 28px; min-height: 420px; }
+@media (max-width: 560px) { .booking { padding: 22px 18px; border-radius: 26px; } }
+
+.booking-head { display: flex; align-items: flex-start; gap: 6px; }
+.booking-head .back { margin: 2px 0 0 -10px; flex: none; }
+.booking-titles { min-width: 0; }
+.booking-titles h1 { margin-top: 4px; }
+.progress { height: 4px; border-radius: 4px; background: rgba(120, 120, 128, 0.14); margin: 18px 0 18px; overflow: hidden; }
+.progress span { display: block; height: 100%; width: 0; border-radius: inherit; background: var(--accent); transition: width 0.5s var(--ease); }
+
+.selection { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 540; background: rgba(120, 120, 128, 0.1); color: var(--text-2); border: 0; cursor: pointer; transition: background 0.2s; }
+.chip:hover { background: rgba(120, 120, 128, 0.18); }
+.chip .icon { display: inline-flex; opacity: 0.7; }
+
+/* Behandelingen */
+.services { display: grid; gap: 10px; }
+.service {
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 16px;
+  width: 100%; text-align: left; padding: 18px 20px;
+  border-radius: var(--r-lg); border: 1px solid var(--line); background: var(--field-bg);
+  cursor: pointer; transition: transform 0.25s var(--ease), border-color 0.2s, background 0.2s, box-shadow 0.25s var(--ease);
+}
+.service:hover { background: var(--glass-bg-strong); border-color: var(--line-strong); box-shadow: 0 10px 30px -14px rgba(0, 0, 0, 0.25); }
+.service:active { transform: scale(0.985); }
+.service.selected { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.service-name { font-size: 17px; font-weight: 600; }
+.service-desc { font-size: 14px; color: var(--text-3); grid-column: 1; }
+.service-meta { display: flex; gap: 10px; align-items: center; font-size: 13px; color: var(--text-3); grid-column: 1; margin-top: 4px; flex-wrap: wrap; }
+.service-meta .icon { display: inline-flex; }
+.service-price { grid-column: 2; grid-row: 1 / span 3; font-size: 17px; font-weight: 620; font-variant-numeric: tabular-nums; }
+
+.step-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 24px; flex-wrap: wrap; }
+.step-actions .btn-primary { min-width: 160px; }
+@media (max-width: 560px) {
+  .step-actions { position: sticky; bottom: calc(10px + env(safe-area-inset-bottom)); }
+  .step-actions .btn-primary { flex: 1; }
+}
+
+.form { display: grid; gap: 14px; }
+.honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+
+.discount-row { display: flex; gap: 10px; }
+.discount-row .input { text-transform: uppercase; letter-spacing: 0.06em; }
+.discount-row .input::placeholder { text-transform: none; letter-spacing: normal; }
+.discount-ok { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-radius: var(--r-md); background: rgba(48, 176, 90, 0.1); color: #1f8a43; font-weight: 560; font-size: 15px; }
+@media (prefers-color-scheme: dark) { .discount-ok { color: #5fd384; } }
+
+.summary-card { border-radius: var(--r-lg); padding: 6px 18px; background: rgba(120, 120, 128, 0.06); border: 1px solid var(--line); }
+.section-gap { margin-top: 18px; }
+
+/* Resultaat */
+.result { text-align: center; padding: 18px 0 6px; }
+.result-icon { width: 72px; height: 72px; margin: 0 auto 18px; border-radius: 50%; display: grid; place-items: center; background: var(--green); color: #fff; box-shadow: 0 14px 30px -10px rgba(48, 176, 90, 0.7); animation: popIn 0.5s var(--spring); }
+.result-icon.wait { background: var(--orange); box-shadow: 0 14px 30px -10px rgba(242, 155, 56, 0.6); }
+.result-icon.fail { background: var(--red); box-shadow: 0 14px 30px -10px rgba(255, 69, 58, 0.6); }
+.result h2 { font-size: 26px; }
+.result p { color: var(--text-2); margin: 10px auto 0; max-width: 420px; }
+.code-box { display: inline-flex; flex-direction: column; gap: 2px; margin: 22px auto 0; padding: 14px 26px; border-radius: 18px; background: rgba(120, 120, 128, 0.08); }
+.code-box strong { font-size: 26px; letter-spacing: 0.16em; font-variant-numeric: tabular-nums; }
+.result .summary-card { text-align: left; margin-top: 22px; }
+.result-actions { display: flex; gap: 10px; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
+
+.empty-state { text-align: center; padding: 36px 10px; color: var(--text-3); }
+.otp { font-size: 28px; letter-spacing: 0.4em; text-align: center; font-variant-numeric: tabular-nums; }
+
+.foot { max-width: 760px; margin: 0 auto; padding: 0 20px calc(30px + env(safe-area-inset-bottom)); text-align: center; font-size: 13px; color: var(--text-3); }
+.foot a { color: inherit; }
+.noscript { text-align: center; padding: 40px; }

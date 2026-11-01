@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f4f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b0b0f" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Maak direct online een afspraak.">
+  <title>Afspraak maken</title>
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/glass.css">
+  <link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" id="logo" aria-hidden="true"></div>
+      <div class="brand-text">
+        <div class="brand-name" id="salonName">&nbsp;</div>
+        <div class="status" id="status"><i></i><span>&nbsp;</span></div>
+      </div>
+    </div>
+    <button class="btn btn-glass btn-sm" id="manageBtn" type="button">Mijn afspraak</button>
+  </header>
+
+  <main class="shell">
+    <section class="booking glass" id="booking" aria-live="polite">
+      <div class="booking-head">
+        <button class="btn btn-plain btn-icon back" id="backBtn" type="button" aria-label="Vorige stap" hidden></button>
+        <div class="booking-titles">
+          <div class="eyebrow" id="stepLabel">Afspraak maken</div>
+          <h1 id="stepTitle">Kies een behandeling</h1>
+        </div>
+      </div>
+      <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+      <div class="selection" id="selection" hidden></div>
+      <div class="step" id="step"></div>
+    </section>
+  </main>
+
+  <footer class="foot" id="foot"></footer>
+
+  <noscript><p class="noscript">Schakel JavaScript in om een afspraak te maken.</p></noscript>
+  <script src="/assets/ui.js" defer></script>
+  <script src="/app.js" defer></script>
+</body>
+</html>
