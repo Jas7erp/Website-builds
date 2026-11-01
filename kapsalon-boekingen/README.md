@@ -104,3 +104,7 @@ npm test
 ```
 
 De end-to-end tests starten de echte applicatie en draaien het volledige proces via de HTTP-API: boeken met en zonder aanbetaling, kortingscodes, dubbele boekingen, webhooks, opnieuw betalen, late betaling met automatische terugbetaling, *Mijn afspraak* met e-mailverificatie, wijzigen, (te laat) annuleren, het beheer en de iCloud-synchronisatie. Mollie, iCloud (CalDAV) en SMTP worden daarbij vervangen door lokale testdubbels in `test/mocks.js`; de applicatiecode zelf bevat geen testmodus.
+
+## Schermafbeeldingen
+
+Zie [`docs/screenshots/`](docs/screenshots/) voor de boekingsflow (desktop en mobiel), "Mijn afspraak" en de beheeromgeving.
